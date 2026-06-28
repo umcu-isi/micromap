@@ -7,7 +7,7 @@ RUN cd /tmp && \
     BUILD_MODE=1 python ./export_api.py
 
 # Build the website and copy it to /html
-FROM node:slim AS builder
+FROM node:lts-slim AS builder
 COPY --from=api /tmp/openapi.json /src/
 COPY ./ /src/
 RUN cd /src && \
