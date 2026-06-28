@@ -73,11 +73,10 @@ In Windows, the node version manager npv can be installed using [Chocolatey](htt
 ```shell
 choco install nvm
 ```
-Then restart the shell and install and activate the latest npm version:
+Then restart the shell and install and activate the latest LTS npm version:
 ```shell
-nvm install latest
-nvm use latest
-```
+nvm install --lts
+nvm use --lts
 
 ### Install dependencies
 To install all dependencies defined in `package.json`, run this command from the `micromap-web` directory:
@@ -95,16 +94,15 @@ npm run generate-client
 ### Generate CSS
 To compile the tailwind-annotated css, run this command in the `micromap-web` directory: 
 ```bash
-npx tailwindcss -i ./src/css/style.css -o ./css/pollenbase.css
+npx tailwindcss -i ./src/css/style.css -o ./css/micromap.css
 ```
 *You can add **--watch** to hot rebuild based on changes in the source files.*
 
 ### Compile the client module
 To compile the typescript source files to a javascript bundle, run this command in the `micromap-web` directory:
 ```bash
-npx webpack
+npm run build
 ```
-*You can add **--watch** to hot rebuild based on changes in the source files.*
 
 ### Configure and run the website
 The API address and catalog id are configured in the file `config.js` in `micromap-web`.
