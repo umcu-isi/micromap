@@ -29,6 +29,7 @@ Before setting up the development environment, ensure the following software is 
 
 ### Environment files
 The `.env` contains the database and API server configuration. At least set a new database password and API key hash.
+Copy the `.env` file to `.env.dev` and set an `api_key` and `postgress password`:
 
 An SHA-256 hash for `api_key` can be calculated with:
 ```python
@@ -41,7 +42,7 @@ A Docker container includes everything needed to run an application (e.g. runtim
 settings).
 To run the PostgreSQL container as configured in `docker-compose.yml`, change directory to where this file located is and run:
 ```shell
-docker-compose --env-file .env up -d
+docker compose --env-file .env.dev up -d db
 ```
 When run for the first time, the `micromap` database will be empty. The REST API will create new tables and relations.
 It will not attempt to recreate tables already present.
@@ -58,7 +59,7 @@ python -m pip install -e ./micromap-api
 ```
 Run the webserver using [uvicorn](https://www.uvicorn.org/):
 ```shell
-uvicorn --env-file .env micromap_api.main:app
+uvicorn --env-file .env.dev micromap_api.main:app
 ```
 If successful, the terminal should output a link that can be used in the web browser to access the REST API, for example `http://localhost:8000/`.
 The endpoint /docs, e.g. `http://localhost:8000/docs` should show the OpenAPI documentation.

@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.14-slim
 
 # Copy and build and install the API.
 RUN --mount=type=bind,target=/src,source=./,rw=true \
