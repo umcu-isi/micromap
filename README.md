@@ -77,6 +77,7 @@ Then restart the shell and install and activate the latest LTS npm version:
 ```shell
 nvm install --lts
 nvm use --lts
+```
 
 ### Install dependencies
 To install all dependencies defined in `package.json`, run this command from the `micromap-web` directory:
